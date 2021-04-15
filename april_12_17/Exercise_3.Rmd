@@ -9,27 +9,47 @@ output: ioslides_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## R Markdown
+## Breaking Bad
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+*Breaking Bad* is an American neo-Western crime drama television series created and produced by Vince Gilligan.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+## Poster
+![](../april_05_09/images/breaking_bad.jpg)
 
-## Slide with Bullets
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+## Basic statistics
 
-## Slide with R Output
+```{r}
+season_1 <- c(1.41, 1.49, 1.08, 1.09, 0.97, 1.07, 1.5)
+season_2 <- c(1.66, 1.6, 1.13, 1.29, 1.21, 1.41 , 1.04, 1.5)
+season_3 <- c(1.95, 1.55, 1.33, 1.46, 1.61, 1.64, 1.52, 1.78, 1.61, 1.2, 1.32, 1.19, 1.56)
+season_4 <- c(2.58, 1.97, 1.71, 1.83, 1.75, 1.67, 1.91, 1.98, 1.89, 1.8, 1.55, 1.73, 1.9)
+season_5 <- c(2.93, 2.29, 2.2, 2.29, 2.48, 2.81, 2.98, 2.78, 5.92, 4.77, 4.85, 4.41, 5.11, 6.37, 6.58, 10.28)
 
-```{r cars, echo = TRUE}
-summary(cars)
+all_seasons <- c(season_1, season_2, season_3, season_4, season_5)
+
+
+mean(all_seasons)
+sd(all_seasons)
+max(all_seasons)
+min(all_seasons)
 ```
 
-## Slide with Plot
+## Graph of viewership over time
 
-```{r pressure}
-plot(pressure)
+```{r}
+plot(all_seasons)
 ```
 
+
+## Graph of season-to-season viewership
+
+```{r}
+seasons_views <- c(mean(season_1), mean(season_2), mean(season_3), mean(season_4), mean(season_5))
+plot(seasons_views)
+```
+
+
+## Description of changes
+
+From season 1 to season 4 viewership systematically increased. After season 4 we can see drastically growth in number of viewers (more than 50% increase).
