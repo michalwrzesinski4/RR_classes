@@ -50,6 +50,21 @@ isco9$ISCO <- 9
 # and this gives us one large file with employment in all occupations.
 all_data <- rbind(isco1, isco2, isco3, isco4, isco5, isco6, isco7, isco8, isco9)
 
+# libraries
+library(dplyr)
+library(tidyr)
+
+# country as column
+transposed_dataset <- all_data %>%
+  select(-"European Union - 28 countries (2013-2020)") %>%
+  gather("Country", "Value", -TIME)
+
+# total value for each country
+transposed_dataset %>%
+  group_by(Country) %>%
+  summarise(total = sum(Value))
+
+
 # We have 9 occupations and the same time range for each, so we an add the totals by
 # adding a vector that is 9 times the previously calculated totals
 all_data$total_Belgium <- c(total_Belgium, total_Belgium, total_Belgium, total_Belgium, total_Belgium, total_Belgium, total_Belgium, total_Belgium, total_Belgium) 
